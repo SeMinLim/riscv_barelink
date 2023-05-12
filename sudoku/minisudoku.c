@@ -56,42 +56,21 @@ bool solve(char* set, int idx) {
 
 int 
 main() {
-	//char set[16] = {0,4,3,0,0,0,4,2,0,2,0,0,3,0,0,0};
-	//char set[16] = {0,0,3,0,0,4,0,2,0,0,2,0,0,2,0,3};
-	//printf("input:\n");
-	/*
-	for ( int i = 0; i < 4; i++ ) {
-		for ( int j = 0; j < 4; j++ ) {
-			printf( "%d ", set[i*4+j] );
-		}
-		printf( "\n" );
-	}
-
-	printf( "\n" );
-	*/
 	for ( int i = 0; i < 16; i++ ) {
 		(*printchar) = (setin[i]+0x30);
 		if ( i % 4 == 3 ) (*printchar) = 0xa;
 	}
 	(*printchar) = 0xa;
-
+	
 	if ( solve(setin, 0) ) {
 		for ( int i = 0; i < 16; i++ ) {
 			(*printchar) = (setin[i]+0x30);
 			if ( i % 4 == 3 ) (*printchar) = 0xa;
 		}
 		(*printchar) = 0xa;
-		/*
-		int mul =1;
-		for ( int i = 0; i < 16; i++ ) {
-			int v = setin[i];
-			asm ("mul %0, %1, %2" : "=r"(mul) : "r"(mul), "r" (v));
-		}
-		(*printchar) = 0xa;
-		(*printchar) = (mul&0x7)+0x30;
-		*/
-		int mul = 1 * 5;
-		int div = 10 / 5;
+
+		uint8_t mul = 1 * 5;
+		uint8_t div = 10 / 5;
 		(*printchar) = mul + 0x30;
 		(*printchar) = 0xa;
 		(*printchar) = div + 0x30;

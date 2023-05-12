@@ -8,7 +8,7 @@ SECTIONS
     .text : {
         *(.text)
     } > ram
-    .data : ALIGN(0x20000000) {
+    .data : ALIGN(0x4000) {
 	*(.data)
     } > ram
     .srodata : {
@@ -16,8 +16,5 @@ SECTIONS
     } > ram
     .riscv.attributes : {
 	*(.riscv.attributes)
-    } > ram
-    .bss : {
-	*(.bss)
     } > ram
 }
